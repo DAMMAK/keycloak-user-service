@@ -1,36 +1,42 @@
-package dev.dammak.keyclockuser.config;
-
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.Contact;
-import io.swagger.v3.oas.models.security.SecurityRequirement;
-import io.swagger.v3.oas.models.security.SecurityScheme;
-import io.swagger.v3.oas.models.Components;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-/**
- * OpenAPI configuration for API documentation.
- */
-@Configuration
-public class OpenApiConfig {
-
-    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .info(new Info()
-                        .title("User Service API")
-                        .version("1.0.0")
-                        .description("Enterprise User Management Microservice")
-                        .contact(new Contact()
-                                .name("Engineering Team")
-                                .email("engineering@company.com")))
-                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
-                .components(new Components()
-                        .addSecuritySchemes("bearerAuth",
-                                new SecurityScheme()
-                                        .type(SecurityScheme.Type.HTTP)
-                                        .scheme("bearer")
-                                        .bearerFormat("JWT")));
-    }
-}
+//package dev.dammak.keyclockuser.config;
+//
+//import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+//import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+//import io.swagger.v3.oas.annotations.info.Contact;
+//import io.swagger.v3.oas.annotations.info.Info;
+//import io.swagger.v3.oas.annotations.info.License;
+//import io.swagger.v3.oas.annotations.security.SecurityScheme;
+//import io.swagger.v3.oas.annotations.servers.Server;
+//import org.springframework.context.annotation.Configuration;
+//
+///**
+// * OpenAPI configuration for API documentation.
+// */
+//@Configuration
+//@OpenAPIDefinition(
+//        info = @Info(
+//                title = "User Service API",
+//                version = "1.0.0",
+//                description = "Enterprise User Management Microservice API",
+//                contact = @Contact(
+//                        name = "Architecture Team",
+//                        email = "architecture@company.com"
+//                ),
+//                license = @License(
+//                        name = "MIT License",
+//                        url = "https://opensource.org/licenses/MIT"
+//                )
+//        ),
+//        servers = {
+//                @Server(url = "http://localhost:8080", description = "Development Server"),
+//                @Server(url = "https://api.company.com", description = "Production Server")
+//        }
+//)
+//@SecurityScheme(
+//        name = "bearerAuth",
+//        type = SecuritySchemeType.HTTP,
+//        bearerFormat = "JWT",
+//        scheme = "bearer"
+//)
+//public class OpenApiConfig {
+//}
